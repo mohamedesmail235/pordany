@@ -1,0 +1,490 @@
+{
+ "autoname": "format:{employee}-{relieving_date}",
+ "creation": "2020-03-10 08:58:23.900762",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "joining_date",
+  "contract_type",
+  "reason_for_leaving",
+  "column_break_3",
+  "form_type",
+  "relieving_date",
+  "last_joining_day",
+  "ignore_loan",
+  "contract_details_section",
+  "contract",
+  "deduct_days_from_service_period",
+  "column_break_11",
+  "contract_start_date",
+  "contract_end_date",
+  "column_break_9",
+  "contract_duration",
+  "yearly_vacation",
+  "duration_from_last_joining_date_section",
+  "adj_years",
+  "column_break_19",
+  "adj_months",
+  "column_break_20",
+  "adj_days",
+  "duration_of_employee_service_section",
+  "years",
+  "column_break_8",
+  "months",
+  "column_break_10",
+  "days",
+  "leave_details_section",
+  "leave_balance",
+  "column_break_24",
+  "current_leave_balance",
+  "column_break_25",
+  "leave_without_pay",
+  "financial_earnings_section",
+  "get_earnings",
+  "salary_slip_components_section",
+  "earning",
+  "column_break_41",
+  "deduction",
+  "total_sums_section",
+  "earning_amount",
+  "column_break_46",
+  "deduction_sum",
+  "column_break_48",
+  "net_sum",
+  "components_section",
+  "earnings",
+  "column_break_16",
+  "deductions",
+  "loan_details_section",
+  "loans",
+  "totals_section",
+  "gross_pay",
+  "total_principal_amount",
+  "company_share",
+  "column_break_22",
+  "total_deduction",
+  "total_loan_repayment",
+  "total_indemnity",
+  "column_break_18",
+  "net_pay",
+  "total_leave_encashed",
+  "total_net_pay",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relieving_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Last Working Day",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.form_type=='Indemnity'",
+   "fieldname": "contract_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contract Type",
+   "options": "Contract Type"
+  },
+  {
+   "depends_on": "eval:doc.form_type=='Indemnity'",
+   "fieldname": "reason_for_leaving",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Reason for Leaving",
+   "options": "Reason for Leaving"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Indemnity",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "duration_of_employee_service_section",
+   "fieldtype": "Section Break",
+   "label": "Duration of Employee Service"
+  },
+  {
+   "default": "0",
+   "fieldname": "years",
+   "fieldtype": "Int",
+   "label": "Years",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "months",
+   "fieldtype": "Int",
+   "label": "Months",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "financial_earnings_section",
+   "fieldtype": "Section Break",
+   "label": "Financial Earnings"
+  },
+  {
+   "fieldname": "earnings",
+   "fieldtype": "Table",
+   "label": "Earnings",
+   "options": "Salary Detail"
+  },
+  {
+   "fieldname": "get_earnings",
+   "fieldtype": "Button",
+   "label": "Get Earnings"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Read Only",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "totals_section",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.form_type=='Indemnity'",
+   "fieldname": "total_indemnity",
+   "fieldtype": "Currency",
+   "label": "Total Indemnity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "deductions",
+   "fieldtype": "Table",
+   "label": "Deductions",
+   "options": "Salary Detail"
+  },
+  {
+   "fieldname": "components_section",
+   "fieldtype": "Section Break",
+   "label": "Components"
+  },
+  {
+   "fieldname": "loan_details_section",
+   "fieldtype": "Section Break",
+   "label": "Loan Details"
+  },
+  {
+   "fieldname": "loans",
+   "fieldtype": "Table",
+   "label": "employee Loan",
+   "options": "Salary Slip Loan"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "net_pay",
+   "fieldtype": "Currency",
+   "label": "Net Pay",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gross_pay",
+   "fieldtype": "Currency",
+   "label": "Total Earnings",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_deduction",
+   "fieldtype": "Currency",
+   "label": "Total Deductions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_principal_amount",
+   "fieldtype": "Currency",
+   "label": "Total Loan Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_loan_repayment",
+   "fieldtype": "Currency",
+   "label": "Total Loan Repayment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "leave_balance",
+   "fieldtype": "Float",
+   "label": "Total Leave Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "leave_without_pay",
+   "fieldtype": "Float",
+   "label": "Leave Without Pay",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_leave_balance",
+   "fieldtype": "Float",
+   "label": "Current Leave Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "form_type",
+   "fieldtype": "Select",
+   "label": "Form Type",
+   "options": "\nIndemnity\nAdjustment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_leave_encashed",
+   "fieldtype": "Float",
+   "label": "Total Leave Encashed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Employee contract",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_share",
+   "fieldtype": "Currency",
+   "label": "Tickets Company Share",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.date_of_joining",
+   "fieldname": "joining_date",
+   "fieldtype": "Read Only",
+   "label": "Joining Date"
+  },
+  {
+   "fetch_from": "contract.contract_start_date",
+   "fieldname": "contract_start_date",
+   "fieldtype": "Read Only",
+   "label": "Contract Start Date"
+  },
+  {
+   "fetch_from": "contract.contratc_end_date",
+   "fieldname": "contract_end_date",
+   "fieldtype": "Read Only",
+   "label": "Contract End Date"
+  },
+  {
+   "fetch_from": "contract.data_7",
+   "fieldname": "contract_duration",
+   "fieldtype": "Read Only",
+   "label": "Contract Duration"
+  },
+  {
+   "fetch_from": "contract.yearly_vacation",
+   "fieldname": "yearly_vacation",
+   "fieldtype": "Read Only",
+   "label": "Yearly Vacation"
+  },
+  {
+   "fieldname": "contract_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Details"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration_from_last_joining_date_section",
+   "fieldtype": "Section Break",
+   "label": "Duration From Last Joining date"
+  },
+  {
+   "fieldname": "leave_details_section",
+   "fieldtype": "Section Break",
+   "label": "Leave Details"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "adj_years",
+   "fieldtype": "Int",
+   "label": "Years",
+   "read_only": 1
+  },
+  {
+   "fieldname": "adj_months",
+   "fieldtype": "Int",
+   "label": "Months",
+   "read_only": 1
+  },
+  {
+   "fieldname": "adj_days",
+   "fieldtype": "Int",
+   "label": "Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.form_type=='Adjustment'",
+   "fieldname": "ignore_loan",
+   "fieldtype": "Check",
+   "label": "Ignore Loan"
+  },
+  {
+   "fieldname": "total_net_pay",
+   "fieldtype": "Float",
+   "label": "Total Net Pay",
+   "read_only": 1
+  },
+  {
+   "fieldname": "deduct_days_from_service_period",
+   "fieldtype": "Float",
+   "label": "Deduct Days from Service Period",
+   "read_only": 1
+  },
+  {
+   "fieldname": "salary_slip_components_section",
+   "fieldtype": "Section Break",
+   "label": "Salary Slip Components"
+  },
+  {
+   "fieldname": "earning",
+   "fieldtype": "Table",
+   "label": "Earning",
+   "options": "Salary Detail",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "deduction",
+   "fieldtype": "Table",
+   "label": "Deduction",
+   "options": "Salary Detail",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_joining_day",
+   "fieldtype": "Date",
+   "label": "Last Joining Day "
+  },
+  {
+   "fieldname": "total_sums_section",
+   "fieldtype": "Section Break",
+   "label": "Total Sums"
+  },
+  {
+   "fieldname": "earning_amount",
+   "fieldtype": "Currency",
+   "label": "Earning Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_46",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "deduction_sum",
+   "fieldtype": "Currency",
+   "label": "Deduction Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_48",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "net_sum",
+   "fieldtype": "Currency",
+   "label": "Net Sum",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-04-07 11:21:36.557430",
+ "modified_by": "Administrator",
+ "module": "HR Changes",
+ "name": "Indemnity",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

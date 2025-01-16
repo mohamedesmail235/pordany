@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include pordany *.css
+recursive-include pordany *.csv
+recursive-include pordany *.html
+recursive-include pordany *.ico
+recursive-include pordany *.js
+recursive-include pordany *.json
+recursive-include pordany *.md
+recursive-include pordany *.png
+recursive-include pordany *.py
+recursive-include pordany *.svg
+recursive-include pordany *.txt
+recursive-exclude pordany *.pyc

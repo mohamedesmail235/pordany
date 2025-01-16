@@ -1,0 +1,171 @@
+{
+ "autoname": "field:loan",
+ "creation": "2020-05-06 03:45:17.542571",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "applicant",
+  "employee_name",
+  "department",
+  "column_break_4",
+  "posting_date",
+  "loan",
+  "repayment_start_date",
+  "loan_amount",
+  "stop_period_section",
+  "from_month",
+  "from_year",
+  "column_break_11",
+  "to_month",
+  "to_year",
+  "section_break_9",
+  "make_repayment_schedule",
+  "column_break_17",
+  "move_repayment_schedule_to_loan",
+  "section_break_19",
+  "repayment_schedule"
+ ],
+ "fields": [
+  {
+   "fetch_from": "applicant.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Read Only",
+   "label": "Employee Name"
+  },
+  {
+   "fetch_from": "applicant.department",
+   "fieldname": "department",
+   "fieldtype": "Read Only",
+   "label": "Department"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "loan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Loan",
+   "options": "Loan",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "loan.repayment_start_date",
+   "fieldname": "repayment_start_date",
+   "fieldtype": "Read Only",
+   "label": "Repayment Start Date"
+  },
+  {
+   "fetch_from": "loan.loan_amount",
+   "fieldname": "loan_amount",
+   "fieldtype": "Currency",
+   "label": "Loan Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "repayment_schedule",
+   "fieldtype": "Table",
+   "label": "Repayment Schedule",
+   "options": "Repayment Schedule",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stop_period_section",
+   "fieldtype": "Section Break",
+   "label": "Stop Period"
+  },
+  {
+   "depends_on": "eval:doc.loan",
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "From Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
+  },
+  {
+   "fieldname": "to_month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "To Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
+  },
+  {
+   "fieldname": "from_year",
+   "fieldtype": "Select",
+   "label": "From Year"
+  },
+  {
+   "fieldname": "to_year",
+   "fieldtype": "Select",
+   "label": "To Year"
+  },
+  {
+   "fieldname": "make_repayment_schedule",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Make New Repayment Schedule"
+  },
+  {
+   "bold": 1,
+   "fieldname": "move_repayment_schedule_to_loan",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Move Repayment Schedule To Loan"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_19",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "applicant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  }
+ ],
+ "modified": "2020-05-07 16:17:53.000829",
+ "modified_by": "Administrator",
+ "module": "HR Changes",
+ "name": "Stop payment Schedule",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
