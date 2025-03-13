@@ -246,3 +246,13 @@ fixtures = [
     ]]]
 }
 ]
+
+
+# ------------------
+jinja = {
+    "methods": [
+     	"pordany.utils.utils.printformat_utils.getTotalInWordsAr",
+		"pordany.utils.utils.printformat_utils.getTotalInWordsEn",
+      	"pordany.utils.utils.printformat_utils.formatDate"
+   ]
+}
